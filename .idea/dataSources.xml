@@ -7,6 +7,7 @@
       <configured-by-url>true</configured-by-url>
       <jdbc-driver>org.apache.derby.jdbc.ClientDriver</jdbc-driver>
       <jdbc-url>jdbc:derby://localhost:1527/companydb;create=true</jdbc-url>
+      <default-dialect>GenericSQL</default-dialect>
     </data-source>
   </component>
 </project>
