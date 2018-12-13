@@ -17,9 +17,11 @@ public class PersonServlet extends HttpServlet {
 
             Connection conn = DriverManager
                     .getConnection("jdbc:derby://localhost:1527/companydb");
-            Statement stmt = conn.createStatement();
+            PreparedStatement stmt = conn.prepareStatement("select * from APP.PERSON where FULL_NAME = ?");
+            stmt.setString(1, login);
+
             ResultSet rs =
-                    stmt.executeQuery("select * from APP.PERSON where FULL_NAME = '" + login +"'");
+                    stmt.executeQuery();
             PrintWriter out = response.getWriter();
             while (rs.next()) {
                 long id = rs.getLong("ID");
